@@ -2,4 +2,4 @@
 str = "Python is an interpreted, interactive, object-oriented programming\
  language that combines remarkable power\
  with very clear syntax"
-print(f"{str[39:66]} with {str[:6]}")
+print(f"{str[39:66]} with {str[:6]}\n")
