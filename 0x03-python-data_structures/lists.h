@@ -24,5 +24,6 @@ int is_palindrome(listint_t **head);
 void print_list_integer(int *my_list, int size);
 listint_t *reverse_listint(listint_t **head);
 bool compare_lists(listint_t *head1, listint_t *head2);
+void print_python_list_info(PyObject *p);
 
 #endif
