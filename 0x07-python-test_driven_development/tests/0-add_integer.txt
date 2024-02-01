@@ -1,0 +1,15 @@
+#!/usr/bin/python
+"""
+This is a test file for the add_integer function.
+
+>>> add_integer(1, 1)
+2
+>>> add_integer(100.1, 2)
+102
+>>> add_integer(100.9, 2)
+102
+>>> add_integer("100", 2)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+"""
