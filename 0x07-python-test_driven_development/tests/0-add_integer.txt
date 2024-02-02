@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-def test_add_integer():
-    """
-    This function tests the 'add_integer' function.
-    """
-    assert add_integer(1, 1) == 2
-    assert add_integer(1.5, 2.5) == 3
-    assert add_integer(100) == 198
-    try:
-        add_integer("1", 2)
-    except TypeError as e:
-        assert str(e) == "a must be an integer"
-    try:
-        add_integer(1, "2")
-    except TypeError as e:
-        assert str(e) == "b must be an integer"
+"""
+This is a test file for the add_integer function.
+
+>>> add_integer(1, 1)
+2
+>>> add_integer(1.5, 2.5)
+3
+>>> add_integer(100)
+198
+>>> add_integer("1", 2)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(1, "2")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+"""
