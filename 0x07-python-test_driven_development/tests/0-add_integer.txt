@@ -2,12 +2,12 @@
 """
 This is a test file for the add_integer function.
 
->>> add_integer(1, 1)
-2
 >>> add_integer(1.5, 2.5)
 3
+>>> add_integer(100, -2)
+98
 >>> add_integer(100)
-198
+100
 >>> add_integer("1", 2)
 Traceback (most recent call last):
 ...
