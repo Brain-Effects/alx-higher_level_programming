@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 class MyList(list):
     """
-    This class inherits from the built-in list type and includes a method to print the list in ascending order.
+    This class inherits from the built-in list type and includes a
+    method to print the list in ascending order.
 
     Methods:
     print_sorted: Prints the list in ascending order.
