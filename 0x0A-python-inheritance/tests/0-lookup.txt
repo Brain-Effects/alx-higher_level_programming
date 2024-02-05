@@ -1,0 +1,18 @@
+"""
+This is a test file for the lookup function.
+
+To run these tests, use the following command:
+python3 -m doctest ./tests/*
+"""
+
+from my_module import lookup
+
+def test_lookup():
+    """
+    Test the lookup function.
+
+    >>> obj = 5
+    >>> result = lookup(obj)
+    >>> 'bit_length' in result
+    True
+    """
