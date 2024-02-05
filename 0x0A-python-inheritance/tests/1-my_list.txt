@@ -1,0 +1,17 @@
+"""
+This is a test file for the MyList class.
+
+To run these tests, use the following command:
+python3 -m doctest ./tests/*
+"""
+
+from my_module import MyList
+
+def test_print_sorted():
+    """
+    Test the print_sorted method of the MyList class.
+
+    >>> my_list = MyList([3, 2, 1])
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+    """
