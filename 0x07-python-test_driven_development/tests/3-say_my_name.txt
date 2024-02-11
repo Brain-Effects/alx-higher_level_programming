@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+
+def say_my_name(first_name, last_name=""):
+    """
+    Prints My name is <first name> <last name>.
+
+    Args:
+        first_name (str): The first name of the person.
+        last_name (str, optional): The last name of the person. Defaults to "".
+
+    Raises:
+        TypeError: If first_name or last_name is not a string.
+
+>>> say_my_name("Alice")
+My name is Alice 
+>>> say_my_name("Bob", "Smith")
+My name is Bob Smith
+>>> say_my_name(123, "Jones")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+"""
