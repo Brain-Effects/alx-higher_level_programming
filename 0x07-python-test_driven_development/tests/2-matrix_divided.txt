@@ -1,4 +1,32 @@
->>>
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
-matrix_divided([[1, 2, 3], [4, 5, 6]], 2)
-[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+def matrix_divided(matrix, div):
+    """
+    Divides all elements of a matrix by a number.
+
+    Args:
+        matrix (list of lists of int or float): The matrix to be divided.
+        div (int or float): The divisor.
+
+    Returns:
+        list of lists of int or float: The new matrix with the divided elements.
+
+    Raises:
+        TypeError: If matrix is not a list of lists of integers or floats,
+                   if each row of the matrix does not have the same size,
+                   or if div is not a number.
+        ZeroDivisionError: If div is zero.
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix_divided([[1, 2], [3, 4]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+>>> matrix_divided("hello", 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+"""
