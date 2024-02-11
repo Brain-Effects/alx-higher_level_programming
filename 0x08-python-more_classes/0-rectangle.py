@@ -6,6 +6,8 @@ The Rectangle class represents a rectangle shape and can be used
 for various purposes such as drawing, calculating area and perimeter, etc.
 """
 # Define a class Rectangle
+
+
 class Rectangle:
     """This class represents a rectangle shape.
 
