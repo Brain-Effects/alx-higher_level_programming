@@ -4,13 +4,14 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     """
     This is the TestRectangle class.
 
     This class tests the Rectangle class.
     """
-    
+
     """
     By resetting Base.__nb_objects in the setUp method,
     you ensure that each test starts with a clean state.
@@ -37,8 +38,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_dimensions(self):
         """
-        This method tests the width, height, x, and y
-        attributes of the Rectangle class.
+        This method tests the width, height, x, and y attributes of
+        the Rectangle class.
         """
 
         r = Rectangle(10, 15, 5, 10)
@@ -46,6 +47,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 15)
         self.assertEqual(r.x, 5)
         self.assertEqual(r.y, 10)
+
+    def test_validation(self):
+        """
+        This method tests the validation of the width, height, x,
+        and y attributes of the Rectangle class.
+        """
+
+        with self.assertRaises(TypeError):
+            r = Rectangle("10", 15)
+        with self.assertRaises(ValueError):
+            r = Rectangle(-10, 15)
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, "15")
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, -15)
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 15, "5")
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 15, -5)
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 15, 5, "10")
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 15, 5, -10)
+
 
 if __name__ == '__main__':
     unittest.main()
