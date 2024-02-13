@@ -40,10 +40,11 @@ class Rectangle(Base):
     def display(self):
         """
         This method prints in stdout the Rectangle instance with
-        the character #.
+        the character #, taking into account the x and y attributes.
         """
+        print("\n" * self.__y, end="")
         for _ in range(self.__height):
-            print("#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """

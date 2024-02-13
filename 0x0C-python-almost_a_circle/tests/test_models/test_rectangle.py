@@ -86,8 +86,8 @@ class TestRectangle(unittest.TestCase):
         This method tests the display method of the Rectangle class.
         """
 
-        r = Rectangle(4, 6)
-        expected_output = "####\n" * 6
+        r = Rectangle(4, 6, 2, 2)
+        expected_output = "\n\n" + "  ####\n" * 6
         saved_stdout = sys.stdout
         try:
             out = StringIO()
