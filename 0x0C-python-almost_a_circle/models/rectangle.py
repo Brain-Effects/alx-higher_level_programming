@@ -53,6 +53,21 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.__x, self.__y, self.__width, self.__height)
 
+    def update(self, *args):
+        """
+        This method assigns an argument to each attribute.
+
+        The argument order is super important:
+        1st argument should be the id attribute
+        2nd argument should be the width attribute
+        3rd argument should be the height attribute
+        4th argument should be the x attribute
+        5th argument should be the y attribute
+        """
+        attributes = ["id", "width", "height", "x", "y"]
+        for attribute, value in zip(attributes, args):
+            setattr(self, attribute, value)
+
     @property
     def width(self):
         return self.__width

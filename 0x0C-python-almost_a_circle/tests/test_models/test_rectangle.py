@@ -106,6 +106,19 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(10, 15, 5, 10, 99)
         self.assertEqual(str(r), "[Rectangle] (99) 5/10 - 10/15")
 
+    def test_update(self):
+        """
+        This method tests the update method of the Rectangle class.
+        """
+
+        r = Rectangle(10, 15, 5, 10, 99)
+        r.update(89, 2, 3, 4, 5)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 5)
+
 
 if __name__ == '__main__':
     unittest.main()
