@@ -11,6 +11,9 @@ class TestBase(unittest.TestCase):
     This class tests the Base class.
     """
 
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
     def test_id(self):
         """
         This method tests the id attribute of the Base class.

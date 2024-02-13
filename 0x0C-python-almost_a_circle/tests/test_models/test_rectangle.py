@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import unittest
+import sys
+from io import StringIO
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -78,6 +80,31 @@ class TestRectangle(unittest.TestCase):
 
         r = Rectangle(10, 15)
         self.assertEqual(r.area(), 150)
+
+    def test_display(self):
+        """
+        This method tests the display method of the Rectangle class.
+        """
+
+        r = Rectangle(4, 6)
+        expected_output = "####\n" * 6
+        saved_stdout = sys.stdout
+        try:
+            out = StringIO()
+            sys.stdout = out
+            r.display()
+            output = out.getvalue()
+            self.assertEqual(output, expected_output)
+        finally:
+            sys.stdout = saved_stdout
+
+    def test_str(self):
+        """
+        This method tests the __str__ method of the Rectangle class.
+        """
+
+        r = Rectangle(10, 15, 5, 10, 99)
+        self.assertEqual(str(r), "[Rectangle] (99) 5/10 - 10/15")
 
 
 if __name__ == '__main__':
