@@ -115,6 +115,36 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(list_rectangles[1], Rectangle)
         self.assertEqual(str(list_rectangles[1]), str(r2))
 
+    def test_save_to_file_csv(self):
+        """
+        This method tests the save_to_file_csv method of the Base class.
+        """
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_objs = [r1, r2]
+        Rectangle.save_to_file_csv(list_objs)
+
+        with open("Rectangle.csv", "r") as file:
+            content = file.read()
+            self.assertEqual(content.strip(), "1,10,7,2,8\n2,2,4,0,0")
+
+    def test_load_from_file_csv(self):
+        """
+        This method tests the load_from_file_csv method of the Base class.
+        """
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_objs = [r1, r2]
+        Rectangle.save_to_file_csv(list_objs)
+
+        list_rectangles = Rectangle.load_from_file_csv()
+        self.assertIsInstance(list_rectangles[0], Rectangle)
+        self.assertEqual(str(list_rectangles[0]), "[Rectangle] (1) 2/8 - 10/7")
+        self.assertIsInstance(list_rectangles[1], Rectangle)
+        self.assertEqual(str(list_rectangles[1]), "[Rectangle] (2) 0/0 - 2/4")
+
 
 if __name__ == '__main__':
     unittest.main()

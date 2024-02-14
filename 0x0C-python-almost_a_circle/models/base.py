@@ -8,6 +8,7 @@ and to avoid duplicating the same code (by extension, same bugs).
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -92,3 +93,43 @@ class Base:
         with open(filename, 'r') as f:
             list_dicts = cls.from_json_string(f.read())
         return [cls.create(**d) for d in list_dicts]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This class method serializes list_objs to a CSV file.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as csvfile:
+            if list_objs is not None:
+                writer = csv.writer(csvfile)
+                if cls.__name__ == "Rectangle":
+                    for obj in list_objs:
+                        writer.writerow(
+                                [obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif cls.__name__ == "Square":
+                    for obj in list_objs:
+                        writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        This class method deserializes instances from a CSV file.
+        """
+        filename = cls.__name__ + ".csv"
+        instances = []
+        try:
+            with open(filename, 'r') as csvfile:
+                reader = csv.reader(csvfile)
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        dictionary = {"id": int(row[0]), "width": int(
+                            row[1]), "height": int(row[2]), "x": int(
+                                    row[3]), "y": int(row[4])}
+                    elif cls.__name__ == "Square":
+                        dictionary = {"id": int(row[0]), "size": int(
+                            row[1]), "x": int(row[2]), "y": int(row[3])}
+                    instances.append(cls.create(**dictionary))
+        except FileNotFoundError:
+            pass
+        return instances
