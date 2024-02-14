@@ -7,6 +7,7 @@ The goal of it is to manage the id attribute in all future classes
 and to avoid duplicating the same code (by extension, same bugs).
 """
 import json
+import os
 
 
 class Base:
@@ -79,3 +80,15 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        This class method returns a list of instances.
+        """
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+        with open(filename, 'r') as f:
+            list_dicts = cls.from_json_string(f.read())
+        return [cls.create(**d) for d in list_dicts]

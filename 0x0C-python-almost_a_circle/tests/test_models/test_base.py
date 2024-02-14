@@ -99,6 +99,22 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(r1), str(r2))
         self.assertIsNot(r1, r2)
 
+    def test_load_from_file(self):
+        """
+        This method tests the load_from_file method of the Base class.
+        """
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_objs = [r1, r2]
+        Rectangle.save_to_file(list_objs)
+
+        list_rectangles = Rectangle.load_from_file()
+        self.assertIsInstance(list_rectangles[0], Rectangle)
+        self.assertEqual(str(list_rectangles[0]), str(r1))
+        self.assertIsInstance(list_rectangles[1], Rectangle)
+        self.assertEqual(str(list_rectangles[1]), str(r2))
+
 
 if __name__ == '__main__':
     unittest.main()
