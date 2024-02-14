@@ -88,6 +88,17 @@ class TestBase(unittest.TestCase):
         json_string = ""
         self.assertEqual(Base.from_json_string(json_string), [])
 
+    def test_create(self):
+        """
+        This method tests the create method of the Base class.
+        """
+
+        r1 = Rectangle(3, 5, 1, 2, 99)
+        dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertIsNot(r1, r2)
+
 
 if __name__ == '__main__':
     unittest.main()
