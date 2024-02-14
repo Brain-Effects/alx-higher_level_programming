@@ -29,3 +29,21 @@ class Square(Rectangle):
         """
         return "[Square] ({}) {}/{} - {}".format(
                 self.id, self.x, self.y, self.width)
+
+    @property
+    def size(self):
+        """
+        This is the getter for size which is equal to width or
+        height of the square.
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        This is the setter for size. It assigns the value to
+        both width and height.
+        The value validation is the same as the Rectangle for width and height.
+        """
+        self.width = value
+        self.height = value
