@@ -73,6 +73,21 @@ class TestBase(unittest.TestCase):
             content = file.read()
             self.assertEqual(content, '[]')
 
+    def test_from_json_string(self):
+        """
+        This method tests the from_json_string method of the Base class.
+        """
+
+        json_string = '[{"id": 12}, {"id": 34}]'
+        self.assertEqual(Base.from_json_string(
+            json_string), [{'id': 12}, {'id': 34}])
+
+        json_string = None
+        self.assertEqual(Base.from_json_string(json_string), [])
+
+        json_string = ""
+        self.assertEqual(Base.from_json_string(json_string), [])
+
 
 if __name__ == '__main__':
     unittest.main()
