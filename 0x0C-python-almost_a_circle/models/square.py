@@ -30,6 +30,29 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}".format(
                 self.id, self.x, self.y, self.width)
 
+    def update(self, *args, **kwargs):
+        """
+        This method assigns an argument to each attribute.
+
+        The argument order is super important for args:
+        1st argument should be the id attribute
+        2nd argument should be the size attribute
+        3rd argument should be the x attribute
+        4th argument should be the y attribute
+
+        Each key in kwargs represents an attribute to the instance.
+        kwargs must be skipped if args exists and is not empty.
+        """
+        if args and len(args) > 0:
+            attributes = ["id", "size", "x", "y"]
+            for attribute, value in zip(attributes, args):
+                setattr(self, attribute, value)
+
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+
     @property
     def size(self):
         """

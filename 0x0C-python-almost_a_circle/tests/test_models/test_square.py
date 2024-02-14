@@ -46,6 +46,24 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             s.size = -10
 
+    def test_update(self):
+        """
+        This method tests the update method of the Square class.
+        """
+
+        s = Square(5)
+        s.update(1, 2, 3, 4)
+        self.assertEqual(s.id, 1)
+        self.assertEqual(s.size, 2)
+        self.assertEqual(s.x, 3)
+        self.assertEqual(s.y, 4)
+
+        s.update(size=6, y=7, x=8, id=9)
+        self.assertEqual(s.id, 9)
+        self.assertEqual(s.size, 6)
+        self.assertEqual(s.x, 8)
+        self.assertEqual(s.y, 7)
+
 
 if __name__ == '__main__':
     unittest.main()
