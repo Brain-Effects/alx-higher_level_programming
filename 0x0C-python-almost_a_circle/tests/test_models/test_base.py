@@ -50,6 +50,29 @@ class TestBase(unittest.TestCase):
         list_dictionaries = None
         self.assertEqual(Base.to_json_string(list_dictionaries), '[]')
 
+    def test_save_to_file(self):
+        """
+        This method tests the save_to_file method of the Base class.
+        """
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_objs = [r1, r2]
+        Rectangle.save_to_file(list_objs)
+
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            expected_content = ('[{"id": 1, "width": 10, "height": 7, "x": 2, \
+                    "y": 8},' ' {"id": 2, "width": 2, "height": 4, "x": 0,\
+                    "y": 0}]')
+
+        list_objs = None
+        Rectangle.save_to_file(list_objs)
+
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, '[]')
+
 
 if __name__ == '__main__':
     unittest.main()
