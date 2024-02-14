@@ -119,6 +119,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 5)
 
+        r.update(id=98, width=1, height=2, x=3, y=4)
+        self.assertEqual(r.id, 98)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 3)
+        self.assertEqual(r.y, 4)
+
 
 if __name__ == '__main__':
     unittest.main()

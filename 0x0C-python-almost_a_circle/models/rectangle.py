@@ -53,7 +53,7 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         This method assigns an argument to each attribute.
 
@@ -63,10 +63,19 @@ class Rectangle(Base):
         3rd argument should be the height attribute
         4th argument should be the x attribute
         5th argument should be the y attribute
+
+        Each key in kwargs represents an attribute to the instance.
+        kwargs must be skipped if args exists and is not empty.
         """
         attributes = ["id", "width", "height", "x", "y"]
-        for attribute, value in zip(attributes, args):
-            setattr(self, attribute, value)
+        if args and len(args) > 0:
+            for attribute, value in zip(attributes, args):
+                setattr(self, attribute, value)
+
+        elif kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     @property
     def width(self):
