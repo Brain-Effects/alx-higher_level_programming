@@ -1,0 +1,2 @@
+0
+The script so far has not explicitly created any int objects. The print function calls and the string literals "I" and "Love" do not involve the creation of int objects.
