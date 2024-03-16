@@ -3,6 +3,7 @@
 Module for MyInt class
 """
 
+
 class MyInt(int):
     """
     MyInt class that inherits from int and inverts == and != operators
