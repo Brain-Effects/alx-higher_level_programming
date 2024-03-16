@@ -10,6 +10,7 @@ class BaseGeometry:
 
     def area(self):
         """
-        This is a public instance method that raises an Exception with a message.
+        This is a public instance method that raises an Exception
+        with a message.
         """
         raise Exception("area() is not implemented")
