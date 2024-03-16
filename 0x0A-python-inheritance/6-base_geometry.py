@@ -3,6 +3,7 @@
 This module contains a class BaseGeometry with a public instance method.
 """
 
+
 class BaseGeometry:
     """
     This is a class named BaseGeometry that includes a public instance method.
