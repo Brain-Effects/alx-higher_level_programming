@@ -1,17 +1,24 @@
 """
-This is a test file for the MyList class.
-
-To run these tests, use the following command:
-python3 -m doctest ./tests/*
+This module contains a test case for the MyList class.
 """
 
-from my_module import MyList
+# Import the MyList class from the module where it is defined.
+# from mylist_module import MyList
 
-def test_print_sorted():
+def test_mylist():
     """
-    Test the print_sorted method of the MyList class.
+    Test case for the MyList class.
+    """
+    # Create an instance of MyList.
+    my_list = MyList()
 
-    >>> my_list = MyList([3, 2, 1])
-    >>> my_list.print_sorted()
-    [1, 2, 3]
-    """
+    # Add some integers to the list.
+    my_list.append(3)
+    my_list.append(1)
+    my_list.append(2)
+
+    # Print the list in ascending order.
+    my_list.print_sorted()
+
+# Run the test case.
+test_mylist()
