@@ -1,16 +1,9 @@
--- This script lists all privileges of the MySQL users user_0d_1 and user_0d_2
+-- Check if user_0d_1 exists and list privileges
+SELECT User, Host, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv
+FROM mysql.user 
+WHERE User='user_0d_1';
 
--- Connect to the MySQL server as the root user
--- mysql -u root -p'password'
-
--- List all global privileges for user_0d_1
-SELECT * FROM mysql.user WHERE User='user_0d_1';
-
--- List all global privileges for user_0d_2
-SELECT * FROM mysql.user WHERE User='user_0d_2';
-
--- List all database-specific privileges for user_0d_1
-SELECT * FROM mysql.db WHERE User='user_0d_1';
-
--- List all database-specific privileges for user_0d_2
-SELECT * FROM mysql.db WHERE User='user_0d_2';
+-- Check if user_0d_2 exists and list privileges
+SELECT User, Host, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv
+FROM mysql.user 
+WHERE User='user_0d_2';
