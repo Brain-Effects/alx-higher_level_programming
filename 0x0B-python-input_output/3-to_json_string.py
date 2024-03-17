@@ -18,4 +18,4 @@ def to_json_string(my_obj):
     Returns:
         str: The JSON representation of the object.
     """
-    return str(my_obj).replace("'", '"')
+    return '"' + str(my_obj) + '"'
