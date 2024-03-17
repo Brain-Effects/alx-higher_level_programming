@@ -7,6 +7,7 @@ The function does not handle file permission or file doesn't exist exceptions.
 No modules are imported for this function.
 """
 
+
 def read_file(filename=""):
     """
     Function to read a text file and print its contents to stdout.
