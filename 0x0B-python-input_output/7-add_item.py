@@ -2,16 +2,6 @@
 """
 This module provides functions to add command line arguments to
 a list and save them to a file in JSON format.
-
-Functions:
-- save_to_json_file(my_obj, filename): Writes a Python object to
-a file in JSON format.
-- load_from_json_file(filename): Reads JSON data from a file and
-returns a Python object.
-
-Note:
-These functions do not handle exceptions if the object can't be serialized
-or if there are file permission issues.
 """
 
 import sys
