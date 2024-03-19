@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+The `json` module is a part of the standard library in Python. It provides methods to parse JSON strings and convert Python data structures to JSON format.
+"""
 import json
 
 
