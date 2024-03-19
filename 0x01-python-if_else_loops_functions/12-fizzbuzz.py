@@ -12,7 +12,7 @@ def fizzbuzz():
             output.append("Buzz")
         else:
             output.append(str(i))
-    print(' '.join(output))
+    print(' '.join(output), end="")
 
 
 fizzbuzz()
