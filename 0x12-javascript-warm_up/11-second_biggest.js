@@ -1,15 +1,8 @@
 #!/usr/bin/node
-const args = process.argv.slice(2).map(Number).sort((a, b) => b - a);
-let secondBiggest = 0;
-
-if (args.length > 1) {
-  secondBiggest = args[1];
-  for (let i = 2; i < args.length; i++) {
-    if (args[i] < secondBiggest) {
-      secondBiggest = args[i];
-      break;
-    }
-  }
+const args = process.argv.slice(2).map(Number);
+if (args.length < 2) {
+  console.log(0);
+} else {
+  const uniqueArgs = [...new Set(args)].sort((a, b) => a - b);
+  console.log(uniqueArgs[uniqueArgs.length - 2]);
 }
-
-console.log(secondBiggest);
